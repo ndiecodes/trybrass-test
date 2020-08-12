@@ -1,5 +1,9 @@
 # TryBrass Test
 
+## API Documentation
+
+https://documenter.getpostman.com/view/8283931/T1LMiT5a?version=latest
+
 ## Usage
 
 -   `git clone https://github.com/ndiecodes/trybrass-test.git`
