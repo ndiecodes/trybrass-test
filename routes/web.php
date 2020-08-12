@@ -23,4 +23,6 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 
     $router->post('login', 'AuthController@login');
 
+     $router->get('banks', 'AppController@getBanks');
+
 });
