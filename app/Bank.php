@@ -4,9 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-
-use Tymon\JWTAuth\Contracts\JWTSubject;
-
 class Bank extends Model
 {
 
@@ -17,7 +14,7 @@ class Bank extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'code',
+        'name', 'code', "currency", 'country', 'type'
     ];
 
       /**

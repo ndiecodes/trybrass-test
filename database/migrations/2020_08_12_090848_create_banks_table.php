@@ -17,6 +17,9 @@ class CreateBanksTable extends Migration
             $table->id();
             $table->string("name");
             $table->string("code")->unique();
+            $table->string("country");
+            $table->string('currency');
+            $table->string("type");
             $table->timestamps();
         });
     }

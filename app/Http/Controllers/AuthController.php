@@ -36,6 +36,8 @@ class AuthController extends Controller
             $plainPassword = $request->input('password');
             $user->password = app('hash')->make($plainPassword);
 
+            $user->balance = 20000; //give new user 20k for testing
+
             $user->save();
 
 
@@ -69,7 +71,7 @@ class AuthController extends Controller
 
         $credentials = $request->only(['email', 'password']);
 
-        if (! $token = Auth::attempt($credentials)) {
+        if (! $token = Auth::setTTL(7200)->attempt($credentials)) {
             return response()->json(['message' => 'Unauthorized'], 401);
         }
 
