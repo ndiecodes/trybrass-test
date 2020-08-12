@@ -44,11 +44,39 @@ class AppController extends Controller
                 }
             }
 
-            return response()->json(['data' => Bank::all() ]);
+            return response()->json(['data' => Bank::all()]);
 
         } catch (\Throwable $th) {
 
-            return response()->json(['message' => "Error Retrieving Banks"] );
+            return response()->json(['message' => "Error Retrieving Banks"], 409 );
+        }
+
+    }
+
+    public function getBankAccountName(Request $request)
+    {
+        $this->validate($request, [
+            'account_number' => 'required|string',
+            "bank_code" => 'required|string'
+        ]);
+
+        try {
+            $res = $this->client->request('GET', '/bank/resolve', [
+                'query' => [
+                        'account_number' => $request->account_number,
+                        'bank_code' => $request->bank_code,
+                    ]
+                ]
+            );
+            $data = json_decode($res->getBody());
+
+            unset($data->data->bank_id); // remove value frontend doesn't need
+
+            return response()->json(['data' => $data->data ]);
+
+        } catch (\Throwable $th) {
+
+            return response()->json(['message' => "Unable to get Account Name"], 409);
         }
 
     }
