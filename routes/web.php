@@ -20,17 +20,15 @@ $router->get('/', function () use ($router) {
 
 $router->group(['prefix' => 'api'], function () use ($router) {
 
-   $router->post('register', 'AuthController@register');
-
+    $router->post('register', 'AuthController@register');
     $router->post('login', 'AuthController@login');
 
     $router->get('banks', 'TransferController@getBanks');
 
     $router->get('check-account', 'TransferController@getBankAccountName');
 
-    $router->post('initiate-transaction', 'TransferController@initiateTransfer');
-
-    $router->post('transfer/{transaction_id}/complete', 'TransferController@completeTransfer');
+    $router->post('transfer', 'TransferController@initiateTransfer');
+    $router->put('transfer/{transaction_id}/complete', 'TransferController@completeTransfer');
 
     $router->get('transactions', 'TransactionController@list');
 });
