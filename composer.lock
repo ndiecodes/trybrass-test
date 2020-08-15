@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4dc6b1227dbd2512e17983be3c861415",
+    "content-hash": "1228bf75ed0964aafa69e6b9e7b3003c",
     "packages": [
         {
             "name": "brick/math",
@@ -2755,6 +2755,62 @@
                 "uuid"
             ],
             "time": "2020-07-28T16:51:01+00:00"
+        },
+        {
+            "name": "rtlopez/decimal",
+            "version": "1.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rtlopez/decimal.git",
+                "reference": "31ef78a433e8f19cad6b720f3e35771d7d92e857"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rtlopez/decimal/zipball/31ef78a433e8f19cad6b720f3e35771d7d92e857",
+                "reference": "31ef78a433e8f19cad6b720f3e35771d7d92e857",
+                "shasum": ""
+            },
+            "require": {
+                "ext-bcmath": "*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^0.12.18",
+                "phpunit/phpunit": "^4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "RtLopez\\": "src/RtLopez/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "rtlopez",
+                    "email": "rtlopezdev@gamil.com",
+                    "homepage": "https://github.com/rtlopez"
+                }
+            ],
+            "description": "An object oriented immutable arbitrary-precision arithmetic library for PHP",
+            "homepage": "https://github.com/rtlopez/decimal",
+            "keywords": [
+                "bcmath",
+                "big decimal",
+                "bignum",
+                "decimal",
+                "financial",
+                "gmp",
+                "immutable",
+                "large numbers",
+                "money",
+                "numbers",
+                "numeric"
+            ],
+            "time": "2020-03-23T21:27:10+00:00"
         },
         {
             "name": "symfony/console",
