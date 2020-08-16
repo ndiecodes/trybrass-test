@@ -71,12 +71,18 @@ class AuthController extends Controller
 
         $credentials = $request->only(['email', 'password']);
 
-        if (! $token = Auth::setTTL(7200)->attempt($credentials)) {
-            return response()->json(['message' => 'Unauthorized'], 401);
-        }
-
-        $user = User::where("email", $request->email)->first();
+        try {
+            if (! $token = Auth::setTTL(7200)->attempt($credentials)) {
+                return response()->json(['message' => 'Invalid Credentials'], 401);
+            }
+            $user = User::where("email", $request->email)->first();
 
         return $this->respondWithToken($token, $user);
+        } catch (\Throwable $th) {
+            \Log::debug($th->getMessage());
+             return response()->json(['message' => 'Server Error'], 500);
+        }
+
+
     }
 }
